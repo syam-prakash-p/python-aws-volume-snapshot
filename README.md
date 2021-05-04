@@ -6,7 +6,7 @@ $ pip3 install boto3
 ``` sh
 vim ~/.aws/config
 [default]
-region=ap-south-1
+region= your_required_region
 ```
 ``` sh
 vim ~/.aws/credentials
