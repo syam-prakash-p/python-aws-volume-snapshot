@@ -5,7 +5,7 @@ volume_id_list = ["vol-0ef633e7877f18763"]  # <-- add volumes to the list (snaps
 
 def collect_previous_snapshot_data(data):
      """
-     collect current snapshot details
+     collect current available snapshots details
      
      """
     previous_snapshot_dict = {}
@@ -19,7 +19,7 @@ client = boto3.client('ec2')
 data = client.describe_snapshots()
 snapshot_dict = collect_previous_snapshot_data(data)
 
-####### create snapshots #########
+####### create new snapshot and delete previous snapshot  #########
 for volume_id in volume_id_list:
     response = client.create_snapshot(
         Description=f"snapshot of {volume_id} - {datetime.utcnow()}",
